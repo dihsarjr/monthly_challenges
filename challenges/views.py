@@ -2,6 +2,12 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 
 # Create your views here.
+
+monthly_challenge_map ={
+    "january":"january",
+}
+
+
 def index(httpRequest):
     return HttpResponse("this works!")
 
@@ -9,14 +15,9 @@ def february(httpRequest):
     return HttpResponse("february")
 
 def monthlyChallenge(httpRequest,month):
-    challenge_text = "not fount!"
-    if month == "january":
-        challenge_text = "january challenge"
-    elif month == "february":
-        challenge_text = "february challenge"
-    elif month == "march":
-        challenge_text = "march challenge"
-    else:
+    try:
+        challenge_text = monthly_challenge_map[month] 
+    except:
         return HttpResponseNotFound("Not fount")
     return HttpResponse(challenge_text)
         
