@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 
 monthly_challenge_map ={
     "january":"january",
+    "test":"new"
 }
 
 
